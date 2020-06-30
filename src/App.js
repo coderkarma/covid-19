@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useEffect, useState } from 'react';
+import Cases from './components/Cases';
+import Chart from './components/Chart';
+import { apiEndPoint } from './components/api/api';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import 'bulma/css/bulma.css';
+
+const App = () => {
+	const [data, setData] = useState([]);
+	useEffect(() => {
+		fetch(apiEndPoint)
+			.then((response) => response.json())
+			.then((data) => console.log(data));
+	}, []);
+
+	return (
+		<Fragment>
+			<h1>Covid website</h1>
+			<Chart />
+			<Cases />
+		</Fragment>
+	);
+};
 
 export default App;
