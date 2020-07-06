@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Card from './components/Card';
 import Chart from './components/Chart';
 import { apiEndPoint } from './components/api/api';
+import Loading from './components/Loading';
 
 import 'bulma/css/bulma.css';
 
@@ -43,7 +44,7 @@ const App = () => {
 					onVentilatorCurrently={onVentilatorCurrently}
 				/>
 			) : (
-				<p>Loading....</p>
+				<Loading />
 			)}
 		</Fragment>
 	);
