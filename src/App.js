@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Card from './components/Card';
 import Chart from './components/Chart';
-import { apiEndPoint } from './components/api/api';
+import { apiEndPoint, apiDailyEndPoint } from './components/api/api';
 import Loading from './components/Loading';
 
 import 'bulma/css/bulma.css';
@@ -28,6 +28,20 @@ const App = () => {
 					setDailyDeaths(death);
 					setRecovered(recovered);
 					setOnVentilatorCurrently(onVentilatorCurrently);
+				});
+		fetchAPI();
+	}, []);
+
+	useEffect(() => {
+		const fetchAPI = () =>
+			fetch(apiDailyEndPoint)
+				.then((res) => res.json())
+				.then((resData) => {
+					resData.map((state) => {
+						if (state['state'] === 'CA') {
+							console.log(state);
+						}
+					});
 				});
 		fetchAPI();
 	}, []);
