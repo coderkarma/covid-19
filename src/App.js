@@ -37,10 +37,12 @@ const App = () => {
 			fetch(apiDailyEndPoint)
 				.then((res) => res.json())
 				.then((resData) => {
+					console.log('last one', resData[resData.length - 1]);
 					resData.map((state) => {
-						if (state['state'] === 'CA') {
-							console.log(state);
-						}
+						// if (state['state'] === 'CA') {
+						// 	console.log(state);
+						// }
+						console.log('start date', state);
 					});
 				});
 		fetchAPI();
