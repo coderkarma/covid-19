@@ -20,7 +20,6 @@ const Chart = ({ dailyData }) => {
 	};
 	const chartData = dailyData
 		.map((item) => {
-			//Setting the right date format year month and day
 			const [year, month, day] = String(item.date)
 				.match(/(\d{4})(\d{2})(\d{2})/)
 				.slice(1, 4);
@@ -48,7 +47,19 @@ const Chart = ({ dailyData }) => {
 			{/* <VictoryLine /> */}
 			<VictoryBar
 				data={result.reverse()}
-
+				style={{
+					data: { fill: 'tomato', width: 12 },
+				}}
+				// animate={{
+				// 	onExit: {
+				// 		duration: 500,
+				// 		before: () => ({
+				// 			_y: 0,
+				// 			fill: 'orange',
+				// 			label: 'BYE',
+				// 		}),
+				// 	},
+				// }}
 				// data={[
 				// 	{ x: 'Jan', y: '500' },
 				// 	{ x: 'Feb', y: '1000,000' },
