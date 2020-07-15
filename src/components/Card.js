@@ -4,7 +4,7 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 	return (
 		<>
 			<h1 className='title is-2 has-text-centered has-text-weight-medium'>
-				{' '}
+		
 				Coronavirus daily updates
 			</h1>
 			<nav className='level'>

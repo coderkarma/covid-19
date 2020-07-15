@@ -7,10 +7,12 @@ import Loading from './components/Loading';
 import 'bulma/css/bulma.css';
 
 const App = () => {
+	// const [postiveByDate, setPositiveByDate] = useState([]);
 	const [positive, setPositive] = useState(null);
 	const [dailyDeaths, setDailyDeaths] = useState(null);
 	const [recovered, setRecovered] = useState(null);
 	const [onVentilatorCurrently, setOnVentilatorCurrently] = useState(null);
+	const [dailyData, setDailyData] = useState([]);
 
 	useEffect(() => {
 		const fetchAPI = () =>
@@ -37,21 +39,25 @@ const App = () => {
 			fetch(apiDailyEndPoint)
 				.then((res) => res.json())
 				.then((resData) => {
-					console.log('last one', resData[resData.length - 1]);
-					resData.map((state) => {
-						// if (state['state'] === 'CA') {
-						// 	console.log(state);
-						// }
-						console.log('start date', state);
-					});
+					//console.log('data', resData);
+					//	data, death, negative, onVentilatorCurrently, recovered
+					// setPositive(resData.positive);
+					// setDailyDeaths(resData.death);
+					// setRecovered(resData.recovered);
+					// setOnVentilatorCurrently(resData.onVentilatorCurrently);
+					setDailyData(resData);
+					// const data = resData.map(({ date, positive }) => {
+					// 	return [date, positive];
+					// });
+					// setPositiveByDate(data);
 				});
 		fetchAPI();
-	}, []);
+	},[]);
 
 	return (
 		<Fragment>
 			<h1>Covid website</h1>
-			<Chart />
+			<Chart dailyData={dailyData} />
 			{positive && dailyDeaths ? (
 				<Card
 					deaths={dailyDeaths}
