@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { VictoryChart, VictoryBar } from 'victory';
+import uscovid from '../assets/US-covid.png';
 
 const Chart = ({ dailyData }) => {
-	//const [data, setData] = useState([]);
-
 	const months = {
 		'01': 'Jan',
 		'02': 'Feb',
@@ -42,40 +41,43 @@ const Chart = ({ dailyData }) => {
 	});
 	console.log('result 🇦🇩', result);
 
+	const chartWrapperStyles = {
+		display: 'flex',
+	};
+
+	const padding = { top: 30, bottom: 40, left: 100, right: 100 };
+
+  
+
 	return (
-		<VictoryChart>
-			{/* <VictoryLine /> */}
-			<VictoryBar
-				data={result.reverse()}
-				style={{
-					data: { fill: 'tomato', width: 12 },
-				}}
-				// animate={{
-				// 	onExit: {
-				// 		duration: 500,
-				// 		before: () => ({
-				// 			_y: 0,
-				// 			fill: 'orange',
-				// 			label: 'BYE',
-				// 		}),
-				// 	},
-				// }}
-				// data={[
-				// 	{ x: 'Jan', y: '500' },
-				// 	{ x: 'Feb', y: '1000,000' },
-				// 	{ x: 'Mar', y: '500,000' },
-				// 	{ x: 'Apr', y: '2,000,000' },
-				// 	{ x: 'May', y: '2,500,000' },
-				// 	{ x: 'Jun', y: '3,000,000' },
-				// 	{ x: 'Jul', y: '3,500,000' },
-				// 	{ x: 'Aug', y: '3,500,000' },
-				// 	{ x: 'Sep', y: '3,500,000' },
-				// 	{ x: 'Oct', y: '3,500,000' },
-				// 	{ x: 'Nov', y: '3,500,000' },
-				// 	{ x: 'Dec', y: '3,500,000' },
-				// ]}
-			/>
-		</VictoryChart>
+		<div
+			style={chartWrapperStyles}
+			className='columns is-mobile  is-desktop'>
+			<div className='column'>
+				<img src={uscovid} alt='covid' />
+			</div>
+			<div className='column'>
+				<VictoryChart padding={padding}>
+					<VictoryBar
+						data={result.reverse()}
+						style={{
+							data: { fill: 'tomato', width: 12 },
+							height: 300,
+						}}
+						animate={{
+							onExit: {
+								duration: 500,
+								before: () => ({
+									_y: 0,
+									fill: 'orange',
+									label: 'BYE',
+								}),
+							},
+						}}
+					/>
+				</VictoryChart>
+			</div>
+		</div>
 	);
 };
 export default Chart;

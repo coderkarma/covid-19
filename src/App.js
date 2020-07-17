@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import Home from './components/Home';
 import Card from './components/Card';
 import Chart from './components/Chart';
 import { apiEndPoint, apiDailyEndPoint } from './components/api/api';
@@ -52,12 +53,12 @@ const App = () => {
 					// setPositiveByDate(data);
 				});
 		fetchAPI();
-	},[]);
+	}, []);
 
 	return (
 		<Fragment>
 			<h1>Covid website</h1>
-			<Chart dailyData={dailyData} />
+			<Home />
 			{positive && dailyDeaths ? (
 				<Card
 					deaths={dailyDeaths}
@@ -68,6 +69,7 @@ const App = () => {
 			) : (
 				<Loading />
 			)}
+			<Chart dailyData={dailyData} />
 		</Fragment>
 	);
 };
