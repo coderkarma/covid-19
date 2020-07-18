@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
-
 	
 	return (
 		<>

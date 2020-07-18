@@ -40,17 +40,7 @@ const App = () => {
 			fetch(apiDailyEndPoint)
 				.then((res) => res.json())
 				.then((resData) => {
-					//console.log('data', resData);
-					//	data, death, negative, onVentilatorCurrently, recovered
-					// setPositive(resData.positive);
-					// setDailyDeaths(resData.death);
-					// setRecovered(resData.recovered);
-					// setOnVentilatorCurrently(resData.onVentilatorCurrently);
 					setDailyData(resData);
-					// const data = resData.map(({ date, positive }) => {
-					// 	return [date, positive];
-					// });
-					// setPositiveByDate(data);
 				});
 		fetchAPI();
 	}, []);
