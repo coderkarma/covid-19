@@ -47,8 +47,6 @@ const Chart = ({ dailyData }) => {
 
 	const padding = { top: 30, bottom: 40, left: 100, right: 100 };
 
-  
-
 	return (
 		<div
 			style={chartWrapperStyles}
