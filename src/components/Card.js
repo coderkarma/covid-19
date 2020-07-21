@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import Counter from './Counter';
 
 const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
-	const [counter, setCounter] = useState(0);
+	// const [counter, setCounter] = useState(0);
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setCounter(counter + 1);
-		}, 1);
+	// useEffect(() => {
+	// 	const interval = setInterval(() => {
+	// 		setCounter(counter + 1);
+	// 	}, 1);
 
-		if (
-			counter >= onVentilatorCurrently ||
-			counter >= positive ||
-			counter >= deaths ||
-			counter >= recovered
-		) {
-			clearInterval(interval);
-		}
+	// 	if (counter >= onVentilatorCurrently) {
+	// 		clearInterval(interval);
+	// 	}
 
-		return () => clearInterval(interval);
-	}, [counter, positive, deaths, recovered, onVentilatorCurrently]);
+	// 	return () => clearInterval(interval);
+	// }, [counter, onVentilatorCurrently]);
 
 	return (
 		<>
 			<h2 className='title is-2 has-text-centered has-text-weight-medium'>
 				Coronavirus daily updates
 			</h2>
+			<Counter
+				positive={positive}
+				deaths={deaths}
+				recovere={recovered}
+				onVentilatorCurrently={onVentilatorCurrently}
+			/>
 			<nav className='level'>
 				<div className='level-item has-text-centered'>
 					<div>
@@ -47,7 +49,7 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 				<div className='level-item has-text-centered'>
 					<div>
 						<p className='heading'> On Ventilator</p>
-						<p className='title'>{counter}</p>
+						<p className='title'>{onVentilatorCurrently}</p>
 					</div>
 				</div>
 			</nav>
