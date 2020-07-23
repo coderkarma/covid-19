@@ -4,15 +4,15 @@ import React, { useEffect, useState } from 'react';
 const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 	const [counter, setCounter] = useState(positive - 150);
 	const [counterDeaths, setCounterDeaths] = useState(deaths - 150);
-	// const [counterRecovered, setCounterRecovered] = useState(recovered);
+	const [counterRecovered, setCounterRecovered] = useState(recovered - 150);
 	const [counterOnVentilator, setCounterOnVentilator] = useState(
-		onVentilatorCurrently
+		onVentilatorCurrently - 150
 	);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCounter(counter + 1);
-		}, 1);
+		});
 
 		if (counter >= positive) {
 			clearInterval(interval);
@@ -24,7 +24,7 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCounterDeaths(counterDeaths + 1);
-		}, 1);
+		}, 0.0001);
 
 		if (counterDeaths >= deaths) {
 			clearInterval(interval);
@@ -33,22 +33,22 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 		return () => clearInterval(interval);
 	}, [counterDeaths, deaths]);
 
-	// useEffect(() => {
-	// 	const interval = setInterval(() => {
-	// 		setCounterRecovered(counterRecovered + 1);
-	// 	}, 1);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCounterRecovered(counterRecovered + 1);
+		}, 0.0001);
 
-	// 	if (counterRecovered >= recovered) {
-	// 		clearInterval(interval);
-	// 	}
+		if (counterRecovered >= recovered) {
+			clearInterval(interval);
+		}
 
-	// 	return () => clearInterval(interval);
-	// }, [counterRecovered, recovered]);
+		return () => clearInterval(interval);
+	}, [counterRecovered, recovered]);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCounterOnVentilator(counterOnVentilator + 1);
-		}, 1);
+		}, 0.0001);
 
 		if (counterOnVentilator >= onVentilatorCurrently) {
 			clearInterval(interval);
@@ -79,7 +79,7 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 				<div className='level-item has-text-centered'>
 					<div>
 						<p className='heading'>Recovered</p>
-						<p className='title'>{recovered}</p>
+						<p className='title'>{counterRecovered}</p>
 					</div>
 				</div>
 				<div className='level-item has-text-centered'>

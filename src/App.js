@@ -15,6 +15,7 @@ const App = () => {
 	const [onVentilatorCurrently, setOnVentilatorCurrently] = useState(null);
 	const [dailyData, setDailyData] = useState([]);
 
+	// console.log('recovered number is here', recovered);
 	useEffect(() => {
 		const fetchAPI = () =>
 			fetch(apiEndPoint)
@@ -49,7 +50,7 @@ const App = () => {
 		<Fragment>
 			<h1>Covid website</h1>
 			<Home />
-			{positive && dailyDeaths ? (
+			{positive && dailyDeaths && recovered && onVentilatorCurrently ? (
 				<Card
 					deaths={dailyDeaths}
 					positive={positive}
