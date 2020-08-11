@@ -6,6 +6,7 @@ import { apiEndPoint, apiDailyEndPoint } from './components/api/api';
 import Loading from './components/Loading';
 
 import 'bulma/css/bulma.css';
+import './App.css';
 
 const App = () => {
 	// const [postiveByDate, setPositiveByDate] = useState([]);
@@ -48,7 +49,7 @@ const App = () => {
 
 	return (
 		<Fragment>
-			<h1>Covid website</h1>
+		
 			<Home />
 			{positive && dailyDeaths && recovered && onVentilatorCurrently ? (
 				<Card

@@ -32,14 +32,12 @@ const Chart = ({ dailyData }) => {
 			}
 			return acc;
 		}, {});
-	console.log('chartdata  *********', chartData);
+
 	const arrVersion = Object.entries(chartData);
 
-	console.log('array version ****', arrVersion);
 	const result = arrVersion.map((item) => {
 		return { x: item[0], y: item[1] };
 	});
-	console.log('result 🇦🇩', result);
 
 	const chartWrapperStyles = {
 		display: 'flex',
