@@ -37,19 +37,20 @@ const App = () => {
 		fetchAPI();
 	}, []);
 
+	const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 	useEffect(() => {
 		const fetchAPI = () =>
-			fetch(apiDailyEndPoint)
+			fetch(proxyurl + apiDailyEndPoint)
 				.then((res) => res.json())
 				.then((resData) => {
 					setDailyData(resData);
-				});
+				})
+				.then((err) => console.log(err));
 		fetchAPI();
 	}, []);
 
 	return (
 		<Fragment>
-		
 			<Home />
 			{positive && dailyDeaths && recovered && onVentilatorCurrently ? (
 				<Card
