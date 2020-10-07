@@ -9,14 +9,12 @@ import 'bulma/css/bulma.css';
 import './App.css';
 
 const App = () => {
-	// const [postiveByDate, setPositiveByDate] = useState([]);
 	const [positive, setPositive] = useState(null);
 	const [dailyDeaths, setDailyDeaths] = useState(null);
 	const [recovered, setRecovered] = useState(null);
 	const [onVentilatorCurrently, setOnVentilatorCurrently] = useState(null);
 	const [dailyData, setDailyData] = useState([]);
 
-	// console.log('recovered number is here', recovered);
 	useEffect(() => {
 		const fetchAPI = () =>
 			fetch(apiEndPoint)
@@ -42,14 +40,15 @@ const App = () => {
 			fetch(apiDailyEndPoint)
 				.then((res) => res.json())
 				.then((resData) => {
+					console.log('check', resData);
 					setDailyData(resData);
-				});
+				})
+				.catch((error) => console.log('point 👉', error));
 		fetchAPI();
 	}, []);
 
 	return (
 		<Fragment>
-		
 			<Home />
 			{positive && dailyDeaths && recovered && onVentilatorCurrently ? (
 				<Card
@@ -61,7 +60,7 @@ const App = () => {
 			) : (
 				<Loading />
 			)}
-			<Chart dailyData={dailyData} />
+			{/* <Chart dailyData={dailyData} /> */}
 		</Fragment>
 	);
 };

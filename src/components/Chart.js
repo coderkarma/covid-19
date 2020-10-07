@@ -3,6 +3,7 @@ import { VictoryChart, VictoryBar } from 'victory';
 import uscovid from '../assets/US-covid.png';
 
 const Chart = ({ dailyData }) => {
+	console.log('daily', dailyData);
 	const months = {
 		'01': 'Jan',
 		'02': 'Feb',
@@ -13,9 +14,9 @@ const Chart = ({ dailyData }) => {
 		'07': 'Jul',
 		'08': 'Aug',
 		'09': 'Sep',
-		'10': 'Oct',
-		'11': 'Nov',
-		'12': 'Dec',
+		10: 'Oct',
+		11: 'Nov',
+		12: 'Dec',
 	};
 	const chartData = dailyData
 		.map((item) => {

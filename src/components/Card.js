@@ -58,7 +58,7 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 	}, [counterOnVentilator, onVentilatorCurrently]);
 
 	return (
-		<>
+		<div>
 			<h2 className='title is-2 has-text-centered has-text-weight-medium'>
 				Coronavirus daily updates
 			</h2>
@@ -89,7 +89,7 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 					</div>
 				</div>
 			</nav>
-		</>
+		</div>
 	);
 };
 
