@@ -35,15 +35,16 @@ const App = () => {
 		fetchAPI();
 	}, []);
 
+	const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 	useEffect(() => {
 		const fetchAPI = () =>
-			fetch(apiDailyEndPoint)
+			fetch(proxyurl + apiDailyEndPoint)
 				.then((res) => res.json())
 				.then((resData) => {
 					console.log('check', resData);
 					setDailyData(resData);
 				})
-				.catch((error) => console.log('point 👉', error));
+				.then((err) => console.log(err));
 		fetchAPI();
 	}, []);
 
@@ -60,7 +61,7 @@ const App = () => {
 			) : (
 				<Loading />
 			)}
-			{/* <Chart dailyData={dailyData} /> */}
+			<Chart dailyData={dailyData} />
 		</Fragment>
 	);
 };
