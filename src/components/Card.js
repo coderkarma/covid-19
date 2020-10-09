@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Card.css';
 // import Counter from './Counter';
 
 const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
@@ -58,7 +59,7 @@ const Card = ({ positive, deaths, recovered, onVentilatorCurrently }) => {
 	}, [counterOnVentilator, onVentilatorCurrently]);
 
 	return (
-		<div>
+		<div className='card'>
 			<h2 className='title is-2 has-text-centered has-text-weight-medium'>
 				Coronavirus daily updates
 			</h2>
