@@ -41,7 +41,6 @@ const App = () => {
 			fetch(proxyurl + apiDailyEndPoint)
 				.then((res) => res.json())
 				.then((resData) => {
-					console.log('check', resData);
 					setDailyData(resData);
 				})
 				.then((err) => console.log(err));

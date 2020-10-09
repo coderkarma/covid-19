@@ -5,8 +5,11 @@ const style = { margin: '0 auto', display: 'flex' };
 
 const Home = () => {
 	return (
-		<div>
-			<h1>Protect YourSelf from Coronavrius</h1>
+		<div className='home'>
+			<div className='home__heading'>
+				<h1>Protect YourSelf from Coronavrius</h1>
+			</div>
+
 			<div>
 				<img src={image} alt='covid-19-img' style={style} />
 			</div>
